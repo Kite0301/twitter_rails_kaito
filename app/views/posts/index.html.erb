@@ -1,0 +1,10 @@
+<div class="posts-index">
+
+  <% @posts.each do |post| %>
+    <div class="posts-index-item">
+      <p class="user-name"><%= post[:user_name] %></p>
+      <%= post[:content] %>
+    </div>
+  <% end %>
+
+</div>
