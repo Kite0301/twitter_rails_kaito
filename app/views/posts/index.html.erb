@@ -1,0 +1,7 @@
+<div class="posts-index">
+  <% @posts.each do |post| %>
+    <div class="posts-index-item">
+      <%= post[:content] %>
+    </div>
+  <% end %>
+</div>
