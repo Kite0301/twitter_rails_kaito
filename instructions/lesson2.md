@@ -1,4 +1,5 @@
 # Instruction for lesson2
+[Lesson2ストーリー](https://docs.google.com/document/d/1LXgkwoXLB_rdQZ3hlpOBciHsymBq-60ktuLkmpRN16A/edit)
 
 ## Page1
 ### 完成物の確認
