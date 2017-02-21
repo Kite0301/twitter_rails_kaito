@@ -6,7 +6,7 @@
 }
 
 .posts-index-item {
-  padding: 10px;
+  padding: 15px;
   background-color: white;
   border-bottom: 1px solid #e1e8ed;
 }
@@ -43,17 +43,24 @@
 
 .posts-show-item .post-time {
   color: #8899a6;
+  margin-bottom: 10px;
 }
 
-.post-show form {
+.posts-show-item a {
+  color: #8899a6;
+  text-decoration: underline;
+}
+
+.posts-show form {
   display: inline;
 }
 
-.post-show input[type="submit"] {
+.posts-show input[type="submit"] {
   padding: 0;
   background-color: white;
   border: none;
-  color: gray;
+  color: #8899a6;
+  text-decoration: underline;
   font-size: 1em;
   margin-left: 10px;
 }
