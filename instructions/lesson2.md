@@ -68,11 +68,14 @@ end
 * index.html.erbの変数postを@postに変更
 
 ## Page6
-### データベースにテーブルを作成しよう
+### マイグレーションファイルの作成
 * rails g migration create_posts content:text
-* rails db:migrate
 
 ## Page7
+### BDに反映させよう
+* rails db:migrate
+
+## Page8
 ### モデルを作成しよう
 * models/post.rbの作成
 ```rb
@@ -80,14 +83,14 @@ class Post < ApplicationRecord
 end
 ```
 
-## Page8
+## Page9
 ### rails consoleを使ってみよう
 * rails console
 ```rb
 1 + 2
 ```
 
-## Page9
+## Page10
 ### データを作成しよう
 * rails console
 ```rb
@@ -95,7 +98,7 @@ post = Post.new(content: 'Hello world')
 post.save
 ```
 
-## Page10
+## Page11
 ### データを取得しよう
 * rails console
 ```rb
@@ -105,14 +108,14 @@ post.save
 Post.all
 ```
 
-## Page11
+## Page12
 ### DBのデータを表示しよう
 * posts_controller.rb
 ```rb
 @posts = Post.all
 ```
 
-## Page12
+## Page13
 ### layoutをまとめよう
 * application.html.erbにヘッダー部分を追加
 ```erb
@@ -127,7 +130,7 @@ Post.all
 ```
 * top.html.erbとabout.html.erbのヘッダー部分を削除
 
-## Page13
+## Page14
 ### link_toを使おう
 * application.html.erbにlink_toを適用
 * posts#indexへのリンクを追加
