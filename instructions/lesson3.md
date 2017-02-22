@@ -117,7 +117,7 @@ end
 ### フォームの見た目を作成しよう
 * new.html.erbを編集
 ```erb
-<textarea name="content"></textarea>
+<textarea></textarea>
 <input type="submit" value="投稿">
 ```
 
