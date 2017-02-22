@@ -1,4 +1,4 @@
-# Instruction for lesson2
+# Instruction for lesson4
 [Lesson4ストーリー](https://docs.google.com/document/d/1Jfm2_IGLO0TqHrL7QOVLEGU3sYyoPSLNLF_GKQkFvbU/edit)
 
 ## Page1
