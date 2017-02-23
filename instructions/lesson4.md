@@ -99,6 +99,7 @@ post 'posts/:id/destroy' => 'posts#destroy'
 * posts_controller.rbを編集
 ```rb
 def destroy
+  redirect_to('/posts/index')
 end
 ```
 * show.html.erbを編集
