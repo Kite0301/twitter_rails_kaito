@@ -242,7 +242,7 @@ end
 ### ファイルへの書き込み
 * rails console
 ```rb
-File.write(‘public/sample.txt’, ‘hoge’)
+File.write('public/sample.txt', 'hoge')
 ```
 
 ## Page16
