@@ -92,20 +92,24 @@ header a {
 }
 
 .header-menus input[type="submit"] {
-  background-color: white;
+  background-color: transparent;
   padding: 0 20px;
   float: left;
   line-height: 75px;
-  color: gray;
+  color: white;
   margin: 0;
   font-size: 15px;
+}
+
+.header-menus input[type="submit"]:focus {
+  outline-width: 0;
 }
 
 /* フラッシュ ================================ */
 .flash {
   padding: 20px;
   color: white;
-  background: #3fb967;
+  background: rgba(55, 101, 204, 0.62);;
   text-align: center;
 }
 
@@ -127,15 +131,6 @@ header a {
   font-size: 18px;
 }
 
-/* 「保存」ボタン */
-.primary-btn {
-  background-color: #239b76;
-}
-
-.primary-btn:hover {
-  background-color: #28b086;
-}
-
 /*　「新規登録」と「編集」ボタン　*/
 .signup-btn {
   color: #582a12;
@@ -148,17 +143,6 @@ header a {
   color: #582a12;
   background-color: white;
   width: 150px;
-}
-
-/*　「戻る」ボタン　*/
-.destroy-btn {
-  background-color: #1f89e2;
-}
-
-.destroy-btn:hover {
-  background-color: #3695e5;
-  color: white;
-  text-decoration: none;
 }
 
 /* フォーム================================ */
@@ -214,27 +198,3 @@ input[type="submit"] {
   border: none;
   cursor: pointer;
 }
-
-
-/*　エラーメッセージ　*/
-.alert {
-  margin-bottom: 20px;
-  border-radius: 4px;
-  line-height: 40px;
-  padding-left: 15px;
-  font-size: small;
-}
-
-.alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
-}
-
-.alert-danger {
-  background-color: #f2dede;
-  color: #a94442;
-}
-
-.alert-danger ul li {
-  list-style-type: disc;
- }
