@@ -1,0 +1,27 @@
+/* users/new, users/edit ================================ */
+.users-new, .users-edit {
+  padding: 50px;
+}
+
+.users-new .form, .users-edit .form {
+  max-width: 500px;
+}
+
+/* users/show ================================ */
+.user-show {
+  width: 750px;
+  margin: 0 auto;
+  padding: 100px;
+  padding-top: 50px;
+}
+
+.user-show .user {
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+}
+
+.user-show a {
+  color: #8899a6;
+  text-decoration: underline;
+}
