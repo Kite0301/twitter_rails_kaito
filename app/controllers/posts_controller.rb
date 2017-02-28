@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @posts = Post.all
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def show

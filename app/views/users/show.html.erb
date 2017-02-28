@@ -5,6 +5,8 @@
     <img src="<%= @user.image %>">
     <h2>メールアドレス</h2>
     <p><%= @user.email %></p>
-    <%= link_to('プロフィールの編集', "/users/#{@user.id}/edit") %>
+    <% if @current_user && @user.id == @current_user.id %>
+      <%= link_to('プロフィールの編集', "/users/#{@user.id}/edit") %>
+    <% end %>
   </div>
 </div>

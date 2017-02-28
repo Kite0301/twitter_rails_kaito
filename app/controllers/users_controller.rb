@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, only: [:edit_profile, :update_profile, :edit_password, :update_password]
+  before_action :forbid_login_user, only: [:new, :create, :login_form, :login]
+
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -11,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
+      password: params[:password],
       image: '/images/default_user.jpg',
     )
 
@@ -41,5 +45,28 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def login_form
+  end
+
+  def login
+    @user = User.find_by(email: params[:email])
+    if @user && @user.password == params[:password]
+      session[:user_id] = @user.id
+      flash[:notice] = 'ログインしました'
+      redirect_to "/users/#{@user.id}"
+    else
+      @email = params[:email]
+      @password = params[:password]
+      @error_message = 'メールアドレスかパスワードに間違いがあります'
+      render 'login_form'
+    end
+  end
+
+  def logout
+    session.delete(:user_id)
+    flash[:notice] = 'ログアウトしました'
+    redirect_to '/login'
   end
 end
