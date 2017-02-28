@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
+      password: params[:password],
       image: '/images/default_user.jpg',
     )
 
@@ -41,5 +42,28 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def login_form
+  end
+
+  def login
+    @user = User.find_by(email: params[:email])
+    if @user && @user.password == params[:password]
+      session[:user_id] = @user.id
+      flash[:notice] = 'ログインしました'
+      redirect_to "/users/#{@user.id}"
+    else
+      @email = params[:email]
+      @password = params[:password]
+      @error_message = 'メールアドレスかパスワードに間違いがあります'
+      render 'login_form'
+    end
+  end
+
+  def logout
+    session.delete(:user_id)
+    flash[:notice] = 'ログアウトしました'
+    redirect_to '/login'
   end
 end

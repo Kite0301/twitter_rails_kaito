@@ -16,15 +16,16 @@
         <% end %>
       </div>
       <ul class="header-menus">
-        <li>
-          <%= link_to 'ABOUT', '/about' %>
-        </li>
-        <li>
-          <%= link_to '投稿一覧', '/posts/index' %>
-        </li>
-        <li>
-          <%= link_to '新規投稿', '/posts/new' %>
-        </li>
+        <% if @current_user %>
+          <li><a href="/users/<%= @current_user.id %>"><%= @current_user.name %></a></li>
+          <li><a href="/posts/index">投稿一覧</a></li>
+          <li><a href="/posts/new"><span class="fa fa-edit"></span>新規投稿</a></li>
+          <li>
+            <%= link_to('ログアウト', '/logout', method: :post) %>
+          </li>
+        <% else %>
+          <li><a href="/about">ABOUT</a></li>
+        <% end %>
       </ul>
     </header>
 
