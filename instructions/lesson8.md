@@ -199,8 +199,27 @@ before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy
 ```rb
 before_action :authenticate_user, only: [:edit, :update]
 ```
-
 ## Page13
+### ユーザー情報の編集を制限しよう
+* users_controller.rb
+```rb
+class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
+
+  # 中略
+
+  private
+
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = '権限がありません'
+      redirect_to '/posts/index'
+    end
+  end
+end
+```
+
+## Page14
 ### トップページはログイン前のユーザーしか見れないようにしよう
 * application_controller.rb
 ```rb
@@ -219,7 +238,7 @@ before_action :forbid_login_user, only: [:top]
 before_action :forbid_login_user, only: [:new, :create, :login_form, :login]
 ```
 
-## Page14
+## Page15
 ### 新規ユーザー作成後に、そのままログイン状態になるようにしよう
 * users_controller.rb
   * createアクションを編集
