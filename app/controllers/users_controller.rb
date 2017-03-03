@@ -43,13 +43,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def login_form
+  end
+
   def login
-    session[:user_id] = 1
-    redirect_to "/posts/index"
+    @user = User.find_by(email: params[:email])
+    if @user
+      session[:user_id] = @user.id
+      flash[:notice] = "ログインしました"
+      redirect_to "/posts/index"
+    else
+      @error_message = "メールアドレスが間違っています"
+      @email = params[:email]
+      render "login_form"
+    end
   end
 
   def logout
     session.delete(:user_id)
-    redirect_to "/"
+    flash[:notice] = "ログアウトしました"
+    redirect_to "/login"
   end
 end
