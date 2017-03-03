@@ -42,4 +42,14 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def login
+    session[:user_id] = 1
+    redirect_to "/posts/index"
+  end
+
+  def logout
+    session.delete(:user_id)
+    redirect_to "/"
+  end
 end
