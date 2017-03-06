@@ -1,27 +1,64 @@
-/* users/new, users/edit ================================ */
-.users-new, .users-edit {
-  padding: 50px;
-}
-
-.users-new .form, .users-edit .form {
-  max-width: 500px;
-}
-
 /* users/show ================================ */
 .user-show {
-  width: 750px;
-  margin: 0 auto;
-  padding: 100px;
-  padding-top: 50px;
+  text-align: center;
 }
 
-.user-show .user {
+.user img {
+  width: 80px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+  margin: 20px 0 10px;
+}
+
+.user h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.user p {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.user a {
+  color: #afb6bf;
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.user span {
+  color: #afb6bf;
+  font-weight: 200;
+  padding: 0 6px 0 8px;
+}
+
+.user-tabs {
+  margin-top: 40px;
+  background-color: white;
   overflow: hidden;
-  display: inline-block;
-  margin: 10px;
+  box-shadow: 0 2px 6px #c1ced7;
 }
 
-.user-show a {
-  color: #8899a6;
-  text-decoration: underline;
+.user-tabs li {
+  float: left;
+}
+
+.user-tabs li.active {
+  border-bottom: 2px solid #3ecdc6;
+}
+
+.user-tabs li.active a {
+  color: #57575f;
+}
+
+.user-tabs a {
+  display: inline-block;
+  padding: 16px 30px;
+  color: #afb6bf;
+}
+
+/* users/new, users/edit ================================ */
+.users-form input {
+  margin-bottom: 15px;
 }

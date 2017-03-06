@@ -1,20 +1,14 @@
 /* home ================================ */
 .top-main {
-  padding-top: 200px;
-  padding-bottom:350px;
+  padding: 285px 0 100px;
   text-align: center;
-  position: relative;
-  color: white;
-}
-
-.top-main:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.3);
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  color: white;
+  background: image-url("/images/top.jpg") no-repeat center 50%;
+  background-size: cover;
 }
 
 .top-message {
@@ -22,32 +16,37 @@
 }
 
 .top-main h2 {
-  font-size: 3em;
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 20px;
+}
+
+.top-main p {
+  font-size: 24px;
 }
 
 /* about ================================ */
 .about-main {
-  padding: 0 50px 100px;
-  position: relative;
+  padding: 180px 8% 0;
   color: white;
 }
 
-.about-main:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.about-main h2,
-.about-main p {
-  position: relative;
-}
-
 .about-main h2 {
-  margin: 0;
-  padding-top: 50px;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.about-main p {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.about-img {
+  width: 84%;
+  position: absolute;
+  top: 48%;
+  left: 8%;
 }
