@@ -7,6 +7,19 @@
       </div>
       <p><%= @post.content %></p>
       <div class="post-time"><%= Time.now %></div>
+      <% if @current_user && Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike">
+            <%= @likes_count %>
+          </span>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn">
+            <%= @likes_count %>
+          </span>
+        <% end %>
+      <% end %>
       <div class="post-menus">
         <% if @user.id == @current_user.id %>
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>
