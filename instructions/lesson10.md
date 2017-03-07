@@ -138,3 +138,70 @@ Like.where(post_id: 1).count
   <% end %>
 <% end %>
 ```
+
+## Page12
+### いいねした投稿の一覧を表示しよう（1）
+* routes.rb
+```rb
+get "users/:id/likes" => "users#likes"
+```
+
+* users_controller.rb
+```rb
+def likes
+end
+```
+
+* users/like.html.erbを作成
+
+* users/show.html.erbにリンク作成
+```erb
+<ul class="user-tabs">
+  <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+  <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+</ul>
+```
+
+## Page13
+### いいねした投稿の一覧を表示しよう（2）
+* users_controller.rb
+```rb
+def likes
+  @user = User.find_by(id: params[:id])
+  @likes = Like.where(user_id: @user.id)
+end
+```
+* users/like.html.erb
+```erb
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <img src="<%= @user.image %>">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <% if @user.id == @current_user.id %>
+        <a href="/users/<%= @current_user.id %>/edit">プロフィールの編集 </a>
+      <% end %>
+    </div>
+
+    <ul class="user-tabs">
+      <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    </ul>
+
+    <% @likes.each do |like| %>
+      <% post = Post.find_by(id: like.post_id) %>
+      <% post_user = User.find_by(id: post.user_id) %>
+      <div class="posts-index-item">
+        <div class="post-left"><img src="<%= post_user.image %>"></div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post_user.name, "/users/#{post_user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+```
